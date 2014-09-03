@@ -1,0 +1,5 @@
+---- adjust_main_screen_due_to_config Matches (4 in 0 files) ----
+Common.h (src):void adjust_main_screen_due_to_config(void);
+Main.c (src):    adjust_main_screen_due_to_config();
+Main.c (src):void adjust_main_screen_due_to_config(void)
+Setup.c (src):                adjust_main_screen_due_to_config();

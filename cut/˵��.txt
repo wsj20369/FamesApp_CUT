@@ -1,0 +1,17 @@
+灌程序的方法:
+
+ 1、c盘根目录下要有DOS文件夹
+ 2、将slc目录拷贝到c盘根目录下
+ 3、编辑config.sys，其内容应该是:
+    
+    device=c:\dos\himem.sys /testmem:off
+    dos=high
+    files=16
+
+ 4、再写个自动批处理就OK了, 比如:
+
+     autoexec.bat:    cd  cut
+                      cut
+
+
+ 5、结束

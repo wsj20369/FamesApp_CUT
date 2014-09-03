@@ -1,0 +1,39 @@
+
+//在英文模式下的字符串
+
+[欢迎画面/welcome screen]
+welcome_title=Welcome to use our Product - FamesOS
+welcome_started=CUT started, press [ENTER] to continue......
+
+[图片/Images]
+welcome_picture=wel_en.bmp
+icon_picture=icon.bmp
+company_picture=company.bmp
+
+
+[主画面/main screen]
+main_title=CUT Control System(Ver: 0.9.1) - Jun
+first_note=Note: Rest is important to keep healthy! Good Luck!
+
+[主画面颜色/Main Screen Colors]
+color_order_title=251
+bkcolor_order_title=37
+color_order_data=70
+bkcolor_order_data=236
+
+color_order_query=189
+bkcolor_order_query=66
+
+color_buttons=71
+bkcolor_buttons=2
+
+bkcolor_other_dialog=0
+
+
+[张数加减窗口/Add_Sub Prompt]
+
+add_sub_x=352
+add_sub_y=260
+add_sub_color=0
+add_sub_bkcolor=66
+

@@ -1,0 +1,45 @@
+
+//简体中文
+
+
+[欢迎画面/welcome screen]
+welcome_title=欢迎使用我们的产品 - CUT开发组
+welcome_started=启动完成, 请按[ENTER]键继续......
+
+[图片/Images]
+welcome_picture=welcome.bmp
+icon_picture=icon.bmp
+company_picture=company.bmp
+
+
+[主画面]
+main_title=横切机控制系统(Ver: 0.1) - CUT开发组
+first_note=提示: 如果您累了, 就要休息休息! 祝您工作顺利, 笑口常开!
+
+
+
+[主画面颜色/Main Screen Colors]
+
+color_order_title=251
+bkcolor_order_title=37
+
+color_order_data=189
+bkcolor_order_data=66
+
+color_order_query=189
+bkcolor_order_query=66
+
+color_buttons=71
+bkcolor_buttons=2
+
+bkcolor_other_dialog=0
+
+
+[张数加减窗口/Add_Sub Prompt]
+
+add_sub_x=352
+add_sub_y=260
+add_sub_color=254
+add_sub_bkcolor=18 //66
+
+

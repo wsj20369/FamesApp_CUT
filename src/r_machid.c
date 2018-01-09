@@ -40,12 +40,26 @@ IDE¿ØÖÆÆ÷µÄ¶Ë¿Ú(helppc 2.10):
 #define IDE_SN_START_WORD 10
 #define IDE_SN_WORD_COUNT 10
 
+static int __wait_ide()
+{
+    int al;
+    long wait = 200000L;
+
+    while ((al = inportb(0x1F7)) >= 0x80) { /* Wait for controller not busy */
+        wait--;
+        if (wait <= 0L)
+            break;
+    }
+
+    return al;
+}
+
 static int __do_read_id(unsigned char __BUF * buf, int count)
 {
     unsigned int dd[256]; /* DiskData */
     unsigned int dd_off; /* DiskData offset */
     unsigned char ide_sn_string[64];
-    int  length, i, j, ret = ok;
+    int al, length, i, j, ret = ok;
     long wait;
 
     FamesAssert(buf != NULL);
@@ -53,26 +67,17 @@ static int __do_read_id(unsigned char __BUF * buf, int count)
     /* ¶ÁÓ²ÅÌÐòÁÐºÅ */
     lock_kernel();
 
-    wait = 200000L;
-    while (inportb(0x1F7) != 0x50) { /* Wait for controller not busy */
-        wait--;
-        if (wait <= 0L)
-            break;
-    }
-    if (wait <= 0L) { /* still busy? or error occured? */
+    outportb(0x1F6, 0xA0); /* Get first/second drive */
+    al = __wait_ide();
+    if ((al & 0x50) != 0x50) { /* still busy? or error occured? */
         ret = fail;
         goto unlock_out;
     }
 
     outportb(0x1F6, 0xA0); /* Get first/second drive */
     outportb(0x1F7, 0xEC); /* Get drive info data */
-    wait = 200000L;
-    while (inportb(0x1F7) != 0x58) { /* Wait for data ready */
-        wait--;
-        if (wait <= 0L)
-            break;
-    }
-    if (wait <= 0L) { /* still busy? or error occured? */
+    al = __wait_ide();
+    if ((al & 0x58) != 0x58) { /* still busy? or error occured? */
         ret = fail;
         goto unlock_out;
     }
